@@ -18,7 +18,7 @@ services:
             - php
             - mysqldb
     php:
-        image: nanoninja/php-fpm:${PHP_VERSION}
+        image: shanderlam/php5.3-fpm
         restart: always
         volumes:
             - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
@@ -40,7 +40,7 @@ services:
         depends_on:
             - mysqldb
     mysqldb:
-        image: mysql:${MYSQL_VERSION}
+        image: mysql:5.7
         container_name: ${MYSQL_HOST}
         restart: always
         env_file:
